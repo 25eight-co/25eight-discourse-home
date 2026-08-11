@@ -1,0 +1,266 @@
+// 25eight home — theme component implementing the approved interface direction
+// (artifact "25eight Community — interface direction", Aug 2026) on top of the
+// 25eight base theme. Point-up hexagons; real brand marks; navy frame around a
+// white centre canvas. Home-page sections appear only on the categories page.
+
+:root {
+  --e8-navy: #091c3b;
+  --e8-navy-2: #12305c;
+  --e8-pink: #dd1a6d;
+  --e8-pink-h: #b8155a;
+  --e8-ink: #1f2d45;
+  --e8-mute: #5e6e85;
+  --e8-wash: #f5f7fa;
+  --e8-line: #e2e8f0;
+}
+
+// Point-up hexagon primitive (Sam's change vs the flat-top mockup hexes).
+%e8-hex-up {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+// ---- Ecosystem strip (above the site header) --------------------------
+.e8-eco {
+  background: var(--e8-navy);
+  color: #cdd7e6;
+  font-size: 12.5px;
+}
+.e8-eco-in {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 0 12px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.e8-eco-nav {
+  display: flex;
+  gap: 22px;
+  a {
+    color: #cdd7e6;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+  .e8-here {
+    color: #ffffff;
+    box-shadow: 0 2px 0 0 var(--e8-pink);
+  }
+}
+.e8-eco-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #9fb0c9;
+}
+.e8-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #31d07f;
+}
+
+// ---- Hero (home/categories page only) ---------------------------------
+.e8-hero,
+.e8-circle {
+  display: none;
+}
+body.navigation-categories {
+  .e8-hero {
+    display: block;
+  }
+  .e8-circle {
+    display: flex;
+  }
+}
+
+.e8-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--e8-navy);
+  color: #ffffff;
+}
+.e8-hero-in {
+  position: relative;
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 44px 12px 48px;
+  h1 {
+    color: #ffffff;
+    font-size: 30px;
+    margin: 0 0 6px;
+  }
+}
+.e8-hero-lead {
+  color: #dfe7f2;
+  font-size: 17px;
+  margin: 0 0 4px;
+}
+.e8-hero-sub {
+  color: #9fb0c9;
+  max-width: 42em;
+  margin: 0 0 20px;
+}
+.e8-name-wrap {
+  display: none;
+  &.show {
+    display: inline;
+  }
+}
+.e8-ask {
+  display: inline-block;
+  background: var(--e8-pink);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 11px 26px;
+  font-weight: 500;
+  &:visited {
+    color: #ffffff;
+  }
+  &:hover {
+    background: var(--e8-pink-h);
+    color: #ffffff;
+  }
+}
+.e8-hexfield {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.e8-fhex {
+  @extend %e8-hex-up;
+  position: absolute;
+  width: 90px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  &:nth-child(1) { right: 6%; top: -30px; }
+  &:nth-child(2) { right: 13%; top: 60px; width: 56px; height: 62px; }
+  &:nth-child(3) { right: 2%; bottom: -34px; width: 120px; height: 132px; background: rgba(255, 255, 255, 0.03); }
+  &:nth-child(4) { left: -28px; bottom: -40px; }
+  &:nth-child(5) { left: 10%; top: -44px; width: 70px; height: 78px; background: rgba(255, 255, 255, 0.03); }
+  &:nth-child(6) { right: 24%; bottom: 8px; width: 40px; height: 44px; }
+}
+
+// ---- The six domains: native category boxes as domain cards -----------
+// Requires site setting desktop_category_page_style = "categories boxes";
+// slugs are the sync contract (human, leadership, business, community,
+// capacity, digital-ai) — see README.
+.category-boxes {
+  .category-box {
+    border: 1px solid var(--e8-line);
+    border-radius: 26px;
+    box-shadow: 0 1px 2px rgba(9, 28, 59, 0.04), 0 8px 24px rgba(9, 28, 59, 0.06);
+  }
+  .category-box-inner {
+    padding: 18px 20px;
+  }
+  .category-box-heading::before {
+    @extend %e8-hex-up;
+    content: "";
+    display: block;
+    width: 44px;
+    height: 48px;
+    margin-bottom: 12px;
+    background: var(--e8-cat, var(--e8-navy));
+  }
+}
+.category-box-human { --e8-cat: #dd1a6d; }
+.category-box-leadership { --e8-cat: #762c82; }
+.category-box-business { --e8-cat: #091c3b; }
+.category-box-community { --e8-cat: #ffa6de; }
+.category-box-capacity { --e8-cat: #fa8111; }
+.category-box-digital-ai { --e8-cat: #5fe6ff; }
+
+// ---- CEO Circle teaser -------------------------------------------------
+.e8-circle {
+  max-width: 1110px;
+  margin: 8px auto 0;
+  background: var(--e8-navy);
+  color: #dfe7f2;
+  border-radius: 26px;
+  padding: 26px 28px;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  h3 {
+    color: #ffffff;
+    margin: 2px 0 6px;
+  }
+  p {
+    margin: 0 0 12px;
+    max-width: 46em;
+    color: #b9c6da;
+  }
+}
+.e8-lockhex {
+  @extend %e8-hex-up;
+  flex: 0 0 56px;
+  width: 56px;
+  height: 62px;
+  background: var(--e8-pink);
+}
+.e8-circle-body {
+  flex: 1 1 340px;
+}
+.e8-circle-tag {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8ea3c0;
+  font-weight: 500;
+}
+.e8-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  span {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12.5px;
+    color: #cdd7e6;
+  }
+}
+.e8-circle-btn {
+  background: var(--e8-pink);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 11px 24px;
+  font-weight: 500;
+  &:visited {
+    color: #ffffff;
+  }
+  &:hover {
+    background: var(--e8-pink-h);
+    color: #ffffff;
+  }
+}
+
+// ---- Navy footer -------------------------------------------------------
+.e8-foot {
+  background: var(--e8-navy);
+  color: #9fb0c9;
+  margin-top: 32px;
+}
+.e8-foot-in {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 30px 12px 36px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.e8-foot-nav {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+  a {
+    color: #cdd7e6;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
