@@ -174,13 +174,13 @@ body.navigation-categories {
 .category-box-digital-ai { --e8-cat: #5fe6ff; }
 
 // ---- CEO Circle teaser -------------------------------------------------
+// Full-bleed navy band between content and footer — spans the viewport so it
+// never fights the sidebar column for alignment; inner content stays centred.
 .e8-circle {
-  max-width: 1110px;
-  margin: 8px auto 0;
+  margin: 24px 0 0;
   background: var(--e8-navy);
   color: #dfe7f2;
-  border-radius: 26px;
-  padding: 26px 28px;
+  padding: 30px max(28px, calc((100% - 1110px) / 2));
   align-items: center;
   gap: 22px;
   flex-wrap: wrap;
@@ -243,6 +243,12 @@ body.navigation-categories {
   background: var(--e8-navy);
   color: #9fb0c9;
   margin-top: 32px;
+}
+// On the home page the circle band leads straight into the footer; keep the
+// two navy sections visually distinct with a hairline.
+body.navigation-categories .e8-foot {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 0;
 }
 .e8-foot-in {
   max-width: 1110px;
