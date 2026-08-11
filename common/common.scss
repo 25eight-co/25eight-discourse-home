@@ -50,10 +50,15 @@
 }
 .e8-eco-right {
   margin-left: auto;
-  display: flex;
+  display: none;
   align-items: center;
   gap: 8px;
   color: #9fb0c9;
+}
+// The trust cue is only true for a live platform session — never show it to
+// logged-out visitors.
+body.logged-in .e8-eco-right {
+  display: flex;
 }
 .e8-dot {
   width: 7px;
