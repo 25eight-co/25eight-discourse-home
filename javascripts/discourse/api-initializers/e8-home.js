@@ -4,21 +4,6 @@
 import { apiInitializer } from "discourse/lib/api";
 
 export default apiInitializer("1.0", (api) => {
-  // Tap an excerpt to expand/collapse it (links inside keep working).
-  document.addEventListener(
-    "click",
-    (e) => {
-      const excerpt = e.target.closest?.(".topic-excerpt");
-      if (!excerpt || e.target.closest("a")) {
-        return;
-      }
-      e.preventDefault();
-      e.stopPropagation();
-      excerpt.classList.toggle("e8-expanded");
-    },
-    true
-  );
-
   const fill = () => {
     const user = api.getCurrentUser();
     const name = document.querySelector(".e8-name");

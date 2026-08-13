@@ -3,9 +3,6 @@
   "about_url": "https://www.25eight.co",
   "license_url": null,
   "authors": "25eight",
-  "theme_version": "1.2.0",
-  "component": true,
-  "modifiers": {
-    "serialize_topic_excerpts": true
-  }
+  "theme_version": "1.2.1",
+  "component": true
 }

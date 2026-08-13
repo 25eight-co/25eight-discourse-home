@@ -243,27 +243,17 @@ body.navigation-categories {
   }
 }
 
-// ---- Topic excerpts: read a message at a glance ------------------------
-// Serialized via the serialize_topic_excerpts modifier (+ the
-// always_include_topic_excerpts site setting). Clamped to two lines;
-// click/tap the excerpt to expand. Clicking a link inside still navigates.
+// ---- Topic excerpts: brand typography only -----------------------------
+// Rendering + expand/collapse come from the official Topic List Excerpts
+// component (github.com/discourse/discourse-topic-excerpts) — install it as a
+// second component on the theme; this just makes its output read as 25eight.
 .topic-list .topic-excerpt,
 .latest-topic-list-item .topic-excerpt {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  cursor: pointer;
   margin-top: 4px;
   max-width: 60em;
   font-size: 14px;
   line-height: 1.55;
   color: var(--e8-mute);
-  &.e8-expanded {
-    display: block;
-    -webkit-line-clamp: unset;
-    overflow: visible;
-  }
 }
 
 // ---- Navy footer -------------------------------------------------------
