@@ -41,6 +41,17 @@ Also: **CEO Circle** with slug `ceo-circle`, security restricted to the
 `ceo-circle` group — the teaser's "Enter the Circle" button links to
 `/c/ceo-circle`.
 
+## Ask-a-question routing (component settings)
+
+The hero's "Ask a question" button pre-selects the composer's category by
+the member's groups. `ask_button_routes` maps `group name,category slug`
+per row, first match wins; `ask_button_fallback` (default `general`) covers
+everyone else. Defaults route `ceo-circle` → the CEO Circle category and
+`program-nlgp` → `next-level-growth`. Keep each route pointed at a category
+its group can create topics in, and fix the slugs in the component settings
+if the real categories differ — the member can still change the category in
+the composer, and an unknown slug simply opens a plain composer.
+
 ## Deliberately deferred
 
 - **Watch & read strip** (featured video + news cards): needs a content

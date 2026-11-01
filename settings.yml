@@ -1,0 +1,9 @@
+ask_button_routes:
+  type: list
+  list_type: compact
+  default: "ceo-circle,ceo-circle|program-nlgp,next-level-growth"
+  description: "Ask-a-question routing. Each row is 'group name,category slug'; the first row whose group the member belongs to decides which category the composer opens in. Rows must only point groups at categories those groups can create topics in."
+ask_button_fallback:
+  type: string
+  default: "general"
+  description: "Category slug the Ask button pre-selects for members who match no route. Blank opens the composer with no category."
